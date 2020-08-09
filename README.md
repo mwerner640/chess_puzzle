@@ -6,7 +6,7 @@ The warden has allowed you and a fellow prisoner a chance to escape prison if yo
 at random on a chess board. Under one of these coins, he has placed a small key. You are required to flip 
 one coin on the board and you must do so in such a way that your fellow prisoner can identify which of the coins the key is under.
 
-This program calculates a way to defeat the warden following my method. We map each square on the board to coordinates in a six-dimensional modulo two space (for further  We then sum the coordinates of all squares whose coin is flipped heads to obtain a sum coordinate. We then find the coordinate of which coin to flip, by adding a one to \<0, 0, 0, 0, 0, 0\> in each dimension where the sum coordinate does not match the key coordinate. We then flip that coordinate behind the scenes and resum to verify.
+This program calculates a way to defeat the warden following my method. We map each square on the board to coordinates in a six-dimensional modulo two space. We then sum the coordinates of all squares whose coin is flipped heads to obtain a sum coordinate. We then find the coordinate of which coin to flip, by adding a one to \<0, 0, 0, 0, 0, 0\> in each dimension where the sum coordinate does not match the key coordinate. We then flip that coordinate behind the scenes and resum to verify.
 
 #### To run
 `FLASK_APP=server.py flask run`
