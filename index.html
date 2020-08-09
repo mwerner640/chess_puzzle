@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=640px, initial-scale=1">
+<style>
+.container {
+  position: relative;
+  text-align: left;
+  font-size: x-large;
+  white-space: pre;
+  color: green;
+}
+.left1 {
+  position: absolute;
+  top: 60px;
+  left: 16px;
+}
+.left2 {
+  position: absolute;
+  top: 140px;
+  left: 16px;
+}
+.left3 {
+  position: absolute;
+  top: 220px;
+  left: 16px;
+}
+.left4 {
+  position: absolute;
+  top: 300px;
+  left: 16px;
+}
+.left5 {
+  position: absolute;
+  top: 380px;
+  left: 16px;
+}
+.left6 {
+  position: absolute;
+  top: 460px;
+  left: 16px;
+}
+.left7 {
+  position: absolute;
+  top: 540px;
+  left: 16px;
+}
+.left8 {
+  position: absolute;
+  top: 620px;
+  left: 16px;
+}
+.explanation {
+  position: absolute;
+  top: 20px;
+  left: 350px;
+  color: black;
+  font-size: medium;
+  padding-left: 350px;
+  padding-right: 20px;
+}
+</style>
+</head>
+<body>
+
+<h2>Chess Puzzle</h2>
+<p>The warden has placed the key under the coin on square {{ square_num }}</p>
+
+<div class="container">
+  <img src="{{url_for('static', filename='board.png')}}" width='640' height='640'/>
+  <div class="left1">{{ row_1 }}</div>
+  <div class="left2">{{ row_2 }}</div>
+  <div class="left3">{{ row_3 }}</div>
+  <div class="left4">{{ row_4 }}</div>
+  <div class="left5">{{ row_5 }}</div>
+  <div class="left6">{{ row_6 }}</div>
+  <div class="left7">{{ row_7 }}</div>
+  <div class="left8">{{ row_8 }}</div>
+  <div class="explanation">Situation: The warden has allowed you and a fellow prisoner a chance to escape prison if you can solve a puzzle. He has placed 64 coins
+at random on a chess board as shown to the left. Under one of these coins, he will randomly place a small key. You are required to flip 
+one coin on the board and you must do so in such a way that your fellow prisoner can identify which of the coins the key is under.
+
+Our Solution: To defeat the warden, we map each square on the board to coordinates in a six-dimensional modulo two space (for further 
+explanation on why and how, see README). We then sum the coordinates of all squares whose coin is flipped heads to obtain a new 
+coordinate in this case {{ init_sum }}, which maps to square {{ init_square }}. Changing this mapping to reflect that the key is under {{ square_num }} involves 
+subtracting the coordinate of the first square from the coordinate of the square the key is under, and then flipping the coin at the 
+square indicated by the solution coordinate. In this case that square is {{ last_square }}.
+  
+Let's verify that by flipping {{ last_square }} and summing. When we do we see the sum maps to square {{ test }}.</div>
+</div>  
+</body>
+</html> 
+
